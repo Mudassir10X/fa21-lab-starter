@@ -78,6 +78,13 @@ main:
 f:
     # YOUR CODE GOES HERE!
 
+    addi t0, a0, 3 		# t0 = 4 + a0  // Gets index for output array e.g -3->0, -2->1, ... , 3->6
+    li t1, 4
+    mul t1, t0, t1 		# Get the address
+    
+    add a1, a1, t1
+    lw a0, 0(a1)
+	
     jr ra               # Always remember to jr ra after your function!
 
 print_int:

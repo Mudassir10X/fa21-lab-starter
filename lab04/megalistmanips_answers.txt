@@ -1,6 +1,10 @@
-1.
-2.
-3.
-4.
-5.
-6.
+1. In mapLoop, lw t1, 0(s0)
+2. After that:
+    slli t3, t0, 2      # counter*4 because 4-byte for each int
+    add t4, t1, t3      # offset the array address by the count
+3.  lw a0, 0(t4)        # load the value at that address into a0
+4.  sw a0, 0(t4)        # store the returned value back into the array
+5.  At the end
+    lw a0, 8(s0)        # load the address of the next node into a0
+    mv a1, s1           # put the address of the function back into a1 to prepare for the recursion
+6.  In done: jr ra # to return.

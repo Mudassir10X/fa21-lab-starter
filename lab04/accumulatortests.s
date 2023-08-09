@@ -16,7 +16,13 @@ TestFailed: .asciiz "Test Failed!"
 #Modify the test so that you can catch the bugs in four of the five solutions!
 main:
     la a0 inputarray
-    jal accumulatorone
+    li s0, 3
+    # jal accumulatorone
+    # jal accumulatortwo
+    # jal accumulatorthree
+    # jal accumulatorfour
+    jal accumulatorfive
+    bne s0, t0, Fail
     li t0 28
     beq a0 t0 Pass
 Fail:
@@ -30,17 +36,17 @@ End:
     jal exit
 
 print_int:
-	mv a1 a0
+    mv a1 a0
     li a0 1
     ecall
     jr ra
-    
+
 print_string:
-	mv a1 a0
+    mv a1 a0
     li a0 4
     ecall
     jr ra
-    
+
 exit:
     li a0 10
     ecall

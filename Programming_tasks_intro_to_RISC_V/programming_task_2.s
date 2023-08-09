@@ -26,7 +26,7 @@ compare_done:
 
 .globl dataArray
 dataArray:
-    addi    sp, sp, -16
+    addi    sp, sp, -8
     sw      ra, 0(sp)
     sw      a0, 4(sp)
     
@@ -47,7 +47,7 @@ dataArray_loop:
 dataArray_done:
     lw      ra, 0(sp)
     lw      s0, 4(sp)
-    addi    sp, sp, 16
+    addi    sp, sp, 8
     ret
 
 .globl main
